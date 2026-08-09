@@ -1,6 +1,6 @@
-# ÖZER BEND PRO — Gizlilik Politikası (yayın deposu)
+# BENDIQ — Gizlilik Politikası (yayın deposu)
 
-Bu depo **sadece** ÖZER BEND PRO uygulamasının gizlilik politikasını barındırır.
+Bu depo **sadece** BENDIQ uygulamasının gizlilik politikasını barındırır.
 Uygulama kaynak kodu burada değildir ve buraya konulmamalıdır.
 
 ## Neden ayrı bir depo?
@@ -20,7 +20,7 @@ olmayan bu ayrı **public** depodan yayınlanıyor.
 
 Bu adres iki yerde geçiyor, ikisi de aynı olmalı:
 
-- `src/main.jsx` içindeki `PRIVACY_POLICY_URL` sabiti (uygulama içi bağlantı)
+- `src/utils/constants.js` içindeki `PRIVACY_POLICY_URL` sabiti (uygulama içi bağlantı)
 - Play Console → App content → Privacy policy alanı
 
 ## Güncelleme

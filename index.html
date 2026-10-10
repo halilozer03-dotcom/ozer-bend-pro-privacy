@@ -27,55 +27,62 @@
 <body>
 
 <h1>BENDIQ — Gizlilik Politikası</h1>
-<p class="updated"><strong>Son güncelleme:</strong> Ağustos 2026 &nbsp;·&nbsp; <a href="./en.html">English version</a></p>
+<p class="updated"><strong>Son güncelleme:</strong> Ekim 2026 &nbsp;·&nbsp; <a href="./en.html">English version</a></p>
 
 <h2>Genel Bakış</h2>
-<p>BENDIQ ("Uygulama"), sac metal büküm hesaplamaları yapan bir profesyonel araçtır. Kullanıcılarımızın gizliliğine önem veriyoruz. Bu politika, Uygulama'yı kullanırken hangi bilgilerin işlendiğini açıklar.</p>
+<p>BENDIQ ("Uygulama"), sac metal büküm hesaplamaları yapan bir profesyonel araçtır. Kullanıcılarımızın gizliliğine önem veriyoruz. Bu politika, Uygulama'yı kullanırken hangi bilgilerin işlendiğini, neden işlendiğini ve hesabınızı nasıl silebileceğinizi açıklar.</p>
 
 <h2>Topladığımız Veriler</h2>
-<p>Uygulama içinde girdiğiniz ölçüler, malzeme seçimleri, favori kayıtlar, firma adı, dil tercihi gibi bilgiler <strong>yalnızca cihazınızın yerel hafızasında (localStorage)</strong> saklanır ve bizim sunucularımıza gönderilmez.</p>
-<p>Aşağıdaki iki özellik istisnadır ve aşağıda ayrıca açıklanmıştır: <strong>Yapay Zeka ile Ölçü Tarama</strong> (fotoğraf işleme) ve <strong>Uygulama İçi Satın Alma</strong> (PRO lisansı).</p>
+<p>Uygulama içinde girdiğiniz ölçüler, malzeme seçimleri, favori kayıtlar, kalibrasyon değerleri, firma adı, dil tercihi gibi bilgiler <strong>yalnızca cihazınızın yerel hafızasında (localStorage)</strong> saklanır ve bizim sunucularımıza gönderilmez.</p>
+<p>Aşağıdaki özellikler istisnadır ve ayrıca açıklanmıştır: <strong>Google ile Giriş</strong> (hesap), <strong>Abonelik ve Satın Alma</strong>, <strong>Deneme Süresi</strong> ve <strong>Yapay Zeka ile Ölçü Tarama</strong>.</p>
+
+<h2>Google ile Giriş ve Hesap</h2>
+<p>Deneme sürenizi ve aboneliğinizi hesabınıza bağlamak için Uygulama'ya Google hesabınızla giriş yaparsınız. Giriş, güvenli sunucumuzda (Supabase Auth) bir kullanıcı kimliği oluşturur ve Google'ın bize verdiği şu bilgiler saklanır: <strong>e-posta adresiniz, adınız ve Google hesap kimliğiniz</strong>. Bu bilgiler yalnızca giriş, deneme ve abonelik hakkınızı doğrulamak için kullanılır; reklam veya pazarlama için kullanılmaz, satılmaz ve üçüncü taraflarla paylaşılmaz. Şifreniz bize hiçbir zaman ulaşmaz.</p>
+
+<h2>Abonelik ve Satın Alma</h2>
+<p>Abonelikler (aylık veya yıllık) ve önceki sürümlerden kalan PRO alımları Google Play Billing üzerinden işlenir. Hakkınızı doğrulamak için sunucumuz satın alma bilgilerini Google Play'e sorar ve şu kaydı hesabınızla ilişkilendirerek saklar: <strong>satın alma belirteci (purchase token), sipariş numarası, ürün, geçerlilik tarihleri ve durum</strong> (etkin, iptal, iade vb.). Ödeme kartı bilgileriniz bize hiçbir zaman ulaşmaz, doğrudan Google Play tarafından işlenir. Aboneliğinizi istediğiniz an Google Play'den iptal edebilirsiniz.</p>
+
+<h2>Deneme Süresi Doğrulaması</h2>
+<p>Her Google hesabı bir kez 15 günlük ücretsiz deneme hakkı alır. Aynı telefonda yeni hesap açılarak denemenin tekrar tekrar alınmasını önlemek için, deneme kaydıyla birlikte cihazınızın işletim sistemi tarafından sağlanan cihaz kimliği (Android Cihaz Kimliği) ve deneme başlangıç/bitiş tarihleri saklanır.</p>
+
+<h2>Hesabı Silme</h2>
+<p>Hesabınızı Uygulama içinden silebilirsiniz: <strong>Ayarlar → Hesabı sil</strong>. Silme işlemi, giriş kimliğinizi (e-posta adresi ve ad) sunucumuzdan kaldırır. Satın alma ve deneme kayıtları; yasal (vergi/kayıt) yükümlülükler, iade işlemleri ve deneme hakkının kötüye kullanımını önlemek için e-posta adresiniz olmadan saklanmaya devam eder. Cihazınızdaki yerel veriler (ölçüler, favoriler) Uygulama'yı kaldırdığınızda silinir.</p>
+<p>Uygulama'ya erişiminiz yoksa silme talebinizi <strong>halilozer03@gmail.com</strong> adresine, giriş yaptığınız Google e-posta adresinden "BENDIQ hesap silme" konusuyla gönderebilirsiniz; talep, Uygulama içi silmeyle aynı şekilde işlenir.</p>
 
 <h2>Yapay Zeka ile Ölçü Tarama</h2>
 <p>Bu özelliği kullandığınızda çektiğiniz/seçtiğiniz profil fotoğrafı, köşe noktalarını tespit etmek amacıyla güvenli bir sunucu (Supabase Edge Function) üzerinden Google'ın Gemini yapay zeka servisine gönderilir. Fotoğraf yalnızca bu analiz için kullanılır, sunucuda kalıcı olarak saklanmaz. Bu işlem sırasında cihazınızın genel bir kullanım sayacı (kötüye kullanımı önlemek için IP bazlı, günlük) tutulur; bu sayaç kişisel kimliğinizi içermez.</p>
 
-<h2>Uygulama İçi Satın Alma (PRO)</h2>
-<p>PRO lisansı satın alma işlemleri Google Play Billing ve RevenueCat üzerinden işlenir. Bu sağlayıcılar, satın alma işlemini gerçekleştirmek için gerekli işlem bilgilerini (satın alma kimliği, cihaz kimliği gibi) kendi gizlilik politikaları kapsamında işler: <a href="https://www.revenuecat.com/privacy/" target="_blank">RevenueCat Gizlilik Politikası</a>. Ödeme kartı bilgileriniz bize hiçbir zaman ulaşmaz, doğrudan Google Play tarafından işlenir.</p>
-
-<h2>Deneme Süresi Doğrulaması</h2>
-<p>30 günlük ücretsiz deneme süresinin kötüye kullanılmasını (uygulamayı silip yeniden yükleyerek tekrar deneme hakkı kazanma) önlemek için, cihazınızın işletim sistemi tarafından sağlanan anonim bir cihaz kimliği (Android Cihaz Kimliği) güvenli sunucumuza gönderilip deneme başlangıç tarihiyle ilişkilendirilir. Bu kimlik, kişisel bilgilerinizle (isim, e-posta vb.) asla eşleştirilmez.</p>
-
 <h2>Sesli Ölçü Girişi</h2>
 <p>Sesli komut özelliğini kullandığınızda, ses kaydınız metne çevrilmesi için cihazınızın işletim sistemi/Google'ın konuşma tanıma servisi tarafından işlenir. Bu işlem bizim sunucularımızdan geçmez; ses verisi bize ulaşmaz.</p>
 
-<h2>Oluşturulan Dosyalar (PDF)</h2>
-<p>Uygulama içinde oluşturduğunuz PDF teknik çizimleri tamamen cihazınızda üretilir ve yalnızca siz paylaşmayı/kaydetmeyi seçtiğinizde cihazınızın paylaşım/kaydetme sistemleri aracılığıyla işlenir. Bu dosyalar bizim tarafımızdan görülmez veya saklanmaz.</p>
+<h2>Oluşturulan Dosyalar (PDF ve DXF)</h2>
+<p>Uygulama içinde oluşturduğunuz PDF teknik çizimleri ve DXF açınım dosyaları tamamen cihazınızda üretilir ve yalnızca siz paylaşmayı/kaydetmeyi seçtiğinizde cihazınızın paylaşım/kaydetme sistemleri aracılığıyla işlenir. Bu dosyalar bizim tarafımızdan görülmez veya saklanmaz.</p>
 
 <h2>Üçüncü Taraf Hizmetler</h2>
-<p>Uygulama, yukarıda açıklanan Supabase (AI tarama ve cihaz doğrulama), Google Gemini (AI tarama), Google Play Billing / RevenueCat (satın alma) dışında reklam göstermez ve analitik/izleme yazılımı (Google Analytics, Firebase Analytics vb.) kullanmaz.</p>
-<p>Google Play Store üzerinden dağıtım yapıldığı için, Google'ın kendi gizlilik politikası (satın alma, indirme istatistikleri vb. için) ayrıca geçerlidir: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+<p>Uygulama yalnızca şu hizmetleri kullanır: Supabase (giriş, abonelik ve deneme doğrulaması, AI tarama sunucusu) ve Google (Google ile Giriş, Google Play Billing, Google Play Developer API, Gemini). Reklam göstermez ve analitik/izleme yazılımı (Google Analytics, Firebase Analytics vb.) kullanmaz.</p>
+<p>Google Play Store üzerinden dağıtım yapıldığı ve Google ile giriş kullanıldığı için Google'ın kendi gizlilik politikası ayrıca geçerlidir: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
 
 <h2>İzinler</h2>
 <ul>
-<li><strong>Dosya sistemi / paylaşım:</strong> PDF dosyalarını kaydetmek ve paylaşmak için. Yalnızca sizin talebiniz üzerine (PDF oluştur/paylaş/yazdır butonlarına bastığınızda) kullanılır.</li>
+<li><strong>Dosya sistemi / paylaşım:</strong> PDF ve DXF dosyalarını kaydetmek ve paylaşmak için. Yalnızca sizin talebiniz üzerine kullanılır.</li>
 <li><strong>Mikrofon:</strong> yalnızca "Sesli Ölçü Gir" özelliğini başlattığınızda ve yalnızca siz konuşurken kullanılır. Ses kaydı hiçbir zaman bizim sunucularımıza gönderilmez, cihazda kaydedilmez; işletim sisteminin konuşma tanıma servisine iletilip metne çevrilir. İzni vermezseniz uygulamanın geri kalanı normal çalışır.</li>
 <li><strong>Kamera / galeri:</strong> yalnızca "Yapay Zeka ile Ölçü Tarama" ekranında fotoğraf çekmek veya seçmek için. Uygulama arka planda kendiliğinden fotoğraf çekmez.</li>
-<li><strong>İnternet:</strong> AI tarama, deneme süresi doğrulaması ve satın alma işlemleri için.</li>
+<li><strong>İnternet:</strong> Google ile giriş, abonelik ve deneme doğrulaması, AI tarama ve satın alma işlemleri için.</li>
 </ul>
 <p>Uygulama konum, kişiler, arama geçmişi, SMS veya benzeri hiçbir veriye erişmez.</p>
 
 <h2>Çocukların Gizliliği</h2>
-<p>Uygulama, sac metal büküm endüstrisinde çalışan profesyoneller için tasarlanmıştır ve çocuklara yönelik değildir. Bilerek 13 yaşın altındaki kişilerden veri toplamıyoruz (zaten hiçbir veri toplanmamaktadır).</p>
+<p>Uygulama, sac metal büküm endüstrisinde çalışan profesyoneller için tasarlanmıştır ve çocuklara yönelik değildir. Bilerek 13 yaşın altındaki kişilerden veri toplamıyoruz.</p>
 
 <h2>Bu Politikadaki Değişiklikler</h2>
 <p>Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler olduğunda bu sayfa güncellenecektir.</p>
 
 <h2>İletişim</h2>
-<p>Bu gizlilik politikası hakkında sorularınız için:<br>
+<p>Bu gizlilik politikası ve hesap silme hakkında sorularınız için:<br>
 <strong>E-posta:</strong> halilozer03@gmail.com</p>
 
 <hr>
-<p class="footer">Bu belge BENDIQ uygulaması için hazırlanmıştır.</p>
+<p class="footer">Bu belge BENDIQ uygulaması için hazırlanmıştır. Geliştirici: OzerLabs — <a href="https://ozerlabs.com">ozerlabs.com</a></p>
 
 </body>
 </html>

@@ -43,7 +43,18 @@
 <p>Subscriptions (monthly or yearly) and PRO purchases from earlier versions are processed by Google Play Billing. To verify your entitlement, our server queries Google Play and stores the following record linked to your account: <strong>purchase token, order number, product, validity dates and status</strong> (active, cancelled, refunded, etc.). Your payment card details never reach us; they are handled directly by Google Play. You can cancel your subscription at any time in Google Play.</p>
 
 <h2>Free Trial Verification</h2>
-<p>Each Google account gets a 30-day free trial once. To prevent the trial from being taken repeatedly by creating new accounts on the same phone, the device identifier provided by your operating system (Android ID) and the trial start/end dates are stored with the trial record.</p>
+<p>Each Google account gets a 30-day free trial once. To prevent the trial from being taken repeatedly by creating new accounts on the same phone, the device identifier provided by your operating system (Android ID) and the trial start/end dates are stored with the trial record. The trial is shared between Android and desktop: a trial started on the phone continues on the computer with its remaining days, and no second trial is given. If the trial is started on the desktop version (Windows/Linux), the computer's one-way hash (see Desktop Version) is stored instead of the device identifier.</p>
+
+<h2>Desktop Version (Windows and Linux)</h2>
+<p>On the desktop version, the account, trial and subscription are the same as on Android (one account works on both platforms). The differences are:</p>
+<ul>
+<li><strong>Sign-in:</strong> Sign in with Google opens in your computer's default browser; after sign-in the browser returns only to the App on this computer (127.0.0.1). The session token is stored encrypted in your operating system's protected storage (DPAPI on Windows).</li>
+<li><strong>Payment — Stripe:</strong> On the desktop version the BENDIQ PRO subscription is charged through Stripe (on Android through Google Play; both give the same access). Stripe processes your payment and billing details (card, email, country); your card details never reach us. The subscription status is kept on our payment server running on Cloudflare (bendiq-api.ozerlabs.com), linked to your Google account, and contains only: <strong>Google account number, Stripe customer number, Stripe subscription number, plan (price code), status, validity date and Stripe notification records (notification number, type, date)</strong>. Stripe's privacy policy: <a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a>. You cancel the subscription and change the payment method in the Stripe customer portal.</li>
+<li><strong>Device limit:</strong> An account can be used on a limited number of computers at the same time. For this, your computer's operating system identifier (Windows MachineGuid / Linux machine-id) is passed through a <strong>one-way hash</strong> on your computer; only this hash, the platform (Windows/Linux) and the first/last seen dates are sent to the server. The raw identifier never reaches us and cannot be recovered from the hash. When the limit is reached, the App lists your registered computers and you can remove one; when you delete your account, the device records are deleted too.</li>
+<li><strong>Offline use:</strong> The subscription stays valid without internet for at most 7 days; after that the App connects to the internet to verify it again.</li>
+<li><strong>Files:</strong> PDF and DXF files are saved to the folder you choose through the operating system's "Save" dialog; printing uses the operating system's print dialog.</li>
+<li><strong>Microphone:</strong> The desktop version has no voice measurement input; the App does not request microphone permission.</li>
+</ul>
 
 <h2>Deleting Your Account</h2>
 <p>You can delete your account inside the App: <strong>Settings → Delete account</strong>. Deletion removes your sign-in identity (email address and name) from our server. Purchase and trial records are kept without your email address for legal (tax/record-keeping) obligations, refund handling and to prevent abuse of the free trial; they are kept for <strong>10 years</strong> and then deleted. Local data on your device (dimensions, favourites) is deleted when you uninstall the App.</p>
@@ -59,7 +70,7 @@
 <p>PDF technical drawings and DXF flat pattern files you create in the App are generated entirely on your device and are only handled by your device's share/save systems when you choose to share or save them. These files are never seen or stored by us.</p>
 
 <h2>Third-Party Services</h2>
-<p>The App uses only the following services: Supabase (sign-in, subscription and trial verification, AI scan server) and Google (Sign in with Google, Google Play Billing, Google Play Developer API, Gemini). It shows no ads and uses no analytics/tracking software (Google Analytics, Firebase Analytics, etc.).</p>
+<p>The App uses only the following services: Supabase (sign-in, subscription and trial verification, AI scan server) , Google (Sign in with Google, Google Play Billing, Google Play Developer API, Gemini) and, on the desktop version, Stripe (payments) and Cloudflare (payment server). It shows no ads and uses no analytics/tracking software (Google Analytics, Firebase Analytics, etc.).</p>
 <p>Because the App is distributed through the Google Play Store and uses Sign in with Google, Google's own privacy policy also applies: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
 
 <h2>Permissions</h2>

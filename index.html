@@ -43,7 +43,18 @@
 <p>Abonelikler (aylık veya yıllık) ve önceki sürümlerden kalan PRO alımları Google Play Billing üzerinden işlenir. Hakkınızı doğrulamak için sunucumuz satın alma bilgilerini Google Play'e sorar ve şu kaydı hesabınızla ilişkilendirerek saklar: <strong>satın alma belirteci (purchase token), sipariş numarası, ürün, geçerlilik tarihleri ve durum</strong> (etkin, iptal, iade vb.). Ödeme kartı bilgileriniz bize hiçbir zaman ulaşmaz, doğrudan Google Play tarafından işlenir. Aboneliğinizi istediğiniz an Google Play'den iptal edebilirsiniz.</p>
 
 <h2>Deneme Süresi Doğrulaması</h2>
-<p>Her Google hesabı bir kez 30 günlük ücretsiz deneme hakkı alır. Aynı telefonda yeni hesap açılarak denemenin tekrar tekrar alınmasını önlemek için, deneme kaydıyla birlikte cihazınızın işletim sistemi tarafından sağlanan cihaz kimliği (Android Cihaz Kimliği) ve deneme başlangıç/bitiş tarihleri saklanır.</p>
+<p>Her Google hesabı bir kez 30 günlük ücretsiz deneme hakkı alır. Aynı telefonda yeni hesap açılarak denemenin tekrar tekrar alınmasını önlemek için, deneme kaydıyla birlikte cihazınızın işletim sistemi tarafından sağlanan cihaz kimliği (Android Cihaz Kimliği) ve deneme başlangıç/bitiş tarihleri saklanır. Deneme hakkı Android ve masaüstünde ortaktır: telefonda başlayan deneme bilgisayarda kalan günleriyle sürer, ikinci bir deneme verilmez. Deneme masaüstü sürümünde (Windows/Linux) başlatılırsa cihaz kimliği yerine bilgisayarın tek yönlü özeti (bkz. Masaüstü Sürümü) saklanır.</p>
+
+<h2>Masaüstü Sürümü (Windows ve Linux)</h2>
+<p>Masaüstü sürümünde hesap, deneme ve abonelik Android ile aynıdır (aynı hesap iki platformda kullanılır). Farklı olanlar:</p>
+<ul>
+<li><strong>Giriş:</strong> Google ile giriş, bilgisayarınızın varsayılan tarayıcısında açılır; tarayıcı girişten sonra yalnızca bu bilgisayardaki uygulamaya (127.0.0.1) döner. Oturum belirteci, işletim sisteminin korumalı deposunda şifreli saklanır (Windows'ta DPAPI).</li>
+<li><strong>Ödeme — Stripe:</strong> BENDIQ PRO aboneliği masaüstü sürümünde Stripe ile tahsil edilir (Android'de Google Play ile; iki yol da aynı hakkı verir). Ödeme ve fatura bilgilerinizi (kart, e-posta, ülke) Stripe işler; kart bilgileriniz bize ulaşmaz. Abonelik durumu, Cloudflare üzerinde çalışan ödeme sunucumuzda (bendiq-api.ozerlabs.com) Google hesabınızla ilişkilendirilerek tutulur ve yalnızca şunları içerir: <strong>Google hesap numarası, Stripe müşteri numarası, Stripe abonelik numarası, plan (fiyat kodu), durum, geçerlilik tarihi ve Stripe bildirim kayıtları (bildirim numarası, türü, tarihi)</strong>. Stripe'ın gizlilik politikası: <a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a>. Aboneliği iptal etmek ve ödeme yöntemini değiştirmek Stripe müşteri portalından yapılır.</li>
+<li><strong>Cihaz sınırı:</strong> Bir hesap aynı anda sınırlı sayıda bilgisayarda kullanılabilir. Bunun için bilgisayarınızın işletim sistemi kimliği (Windows MachineGuid / Linux machine-id) bilgisayarınızda <strong>tek yönlü bir özetten</strong> geçirilir; sunucuya yalnızca bu özet, platform (Windows/Linux) ve ilk/son görülme tarihi gider. Ham kimlik bize ulaşmaz ve özetten geri çıkarılamaz. Sınıra ulaşıldığında uygulama kayıtlı bilgisayarlarınızı gösterir ve birini kaldırabilirsiniz; hesabınızı sildiğinizde cihaz kayıtları da silinir.</li>
+<li><strong>Çevrimdışı kullanım:</strong> Abonelik hakkı internet olmadan en fazla 7 gün geçerli kalır; sonra uygulama hakkı yeniden doğrulamak için internete bağlanır.</li>
+<li><strong>Dosyalar:</strong> PDF ve DXF dosyaları, sizin seçtiğiniz klasöre işletim sisteminin "Kaydet" penceresiyle kaydedilir; yazdırma işletim sisteminin yazdırma penceresiyle yapılır.</li>
+<li><strong>Mikrofon:</strong> Masaüstü sürümünde sesli ölçü girişi yoktur; uygulama mikrofon izni istemez.</li>
+</ul>
 
 <h2>Hesabı Silme</h2>
 <p>Hesabınızı Uygulama içinden silebilirsiniz: <strong>Ayarlar → Hesabı sil</strong>. Silme işlemi, giriş kimliğinizi (e-posta adresi ve ad) sunucumuzdan kaldırır. Satın alma ve deneme kayıtları; yasal (vergi/kayıt) yükümlülükler, iade işlemleri ve deneme hakkının kötüye kullanımını önlemek için e-posta adresiniz olmadan <strong>10 yıl</strong> saklanır ve bu sürenin sonunda silinir. Cihazınızdaki yerel veriler (ölçüler, favoriler) Uygulama'yı kaldırdığınızda silinir.</p>
@@ -59,7 +70,7 @@
 <p>Uygulama içinde oluşturduğunuz PDF teknik çizimleri ve DXF açınım dosyaları tamamen cihazınızda üretilir ve yalnızca siz paylaşmayı/kaydetmeyi seçtiğinizde cihazınızın paylaşım/kaydetme sistemleri aracılığıyla işlenir. Bu dosyalar bizim tarafımızdan görülmez veya saklanmaz.</p>
 
 <h2>Üçüncü Taraf Hizmetler</h2>
-<p>Uygulama yalnızca şu hizmetleri kullanır: Supabase (giriş, abonelik ve deneme doğrulaması, AI tarama sunucusu) ve Google (Google ile Giriş, Google Play Billing, Google Play Developer API, Gemini). Reklam göstermez ve analitik/izleme yazılımı (Google Analytics, Firebase Analytics vb.) kullanmaz.</p>
+<p>Uygulama yalnızca şu hizmetleri kullanır: Supabase (giriş, abonelik ve deneme doğrulaması, AI tarama sunucusu) , Google (Google ile Giriş, Google Play Billing, Google Play Developer API, Gemini) ve masaüstü sürümünde Stripe (ödeme) ile Cloudflare (ödeme sunucusu). Reklam göstermez ve analitik/izleme yazılımı (Google Analytics, Firebase Analytics vb.) kullanmaz.</p>
 <p>Google Play Store üzerinden dağıtım yapıldığı ve Google ile giriş kullanıldığı için Google'ın kendi gizlilik politikası ayrıca geçerlidir: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
 
 <h2>İzinler</h2>
